@@ -1,0 +1,39 @@
+{
+  "system": {
+    "identity": []
+  },
+  "notes": [
+    {"bin": 10000000, "hex": "80", "dec": 128, "channel": 1,    "description": "Chan 1 Note off" },
+    {"bin": 10000001, "hex": "81", "dec": 129, "channel": 2,    "description": "Chan 2 Note off" },
+    {"bin": 10000010, "hex": "82", "dec": 130, "channel": 3,    "description": "Chan 3 Note off" },
+    {"bin": 10000011, "hex": "83", "dec": 131, "channel": 4,    "description": "Chan 4 Note off" },
+    {"bin": 10000100, "hex": "84", "dec": 132, "channel": 5,    "description": "Chan 5 Note off" },
+    {"bin": 10000101, "hex": "85", "dec": 133, "channel": 6,    "description": "Chan 6 Note off" },
+    {"bin": 10000110, "hex": "86", "dec": 134, "channel": 7,    "description": "Chan 7 Note off" },
+    {"bin": 10000111, "hex": "87", "dec": 135, "channel": 8,    "description": "Chan 8 Note off" },
+    {"bin": 10001000, "hex": "88", "dec": 136, "channel": 9,    "description": "Chan 9 Note off" },
+    {"bin": 10001001, "hex": "89", "dec": 137, "channel": 10,   "description": "Chan 10 Note off" },
+    {"bin": 10001010, "hex": "8A", "dec": 138, "channel": 11,   "description": "Chan 11 Note off" },
+    {"bin": 10001011, "hex": "8B", "dec": 139, "channel": 12,   "description": "Chan 12 Note off" },
+    {"bin": 10001100, "hex": "8C", "dec": 140, "channel": 13,   "description": "Chan 13 Note off" },
+    {"bin": 10001101, "hex": "8D", "dec": 141, "channel": 14,   "description": "Chan 14 Note off" },
+    {"bin": 10001110, "hex": "8E", "dec": 142, "channel": 15,   "description": "Chan 15 Note off" },
+    {"bin": 10001111, "hex": "8F", "dec": 143, "channel": 16,   "description": "Chan 16 Note off" },
+    {"bin": 10010000, "hex": "90", "dec": 144, "channel": 1,    "description": "Chan 1 Note on" },
+    {"bin": 10010001, "hex": "91", "dec": 145, "channel": 2,    "description": "Chan 2 Note on" },
+    {"bin": 10010010, "hex": "92", "dec": 146, "channel": 3,    "description": "Chan 3 Note on" },
+    {"bin": 10010011, "hex": "93", "dec": 147, "channel": 4,    "description": "Chan 4 Note on" },
+    {"bin": 10010100, "hex": "94", "dec": 148, "channel": 5,    "description": "Chan 5 Note on" },
+    {"bin": 10010101, "hex": "95", "dec": 149, "channel": 6,    "description": "Chan 6 Note on" },
+    {"bin": 10010110, "hex": "96", "dec": 150, "channel": 7,    "description": "Chan 7 Note on" },
+    {"bin": 10010111, "hex": "97", "dec": 151, "channel": 8,    "description": "Chan 8 Note on" },
+    {"bin": 10011000, "hex": "98", "dec": 152, "channel": 9,    "description": "Chan 9 Note on" },
+    {"bin": 10011001, "hex": "99", "dec": 153, "channel": 10,   "description": "Chan 10 Note on" },
+    {"bin": 10011010, "hex": "9A", "dec": 154, "channel": 11,   "description": "Chan 11 Note on" },
+    {"bin": 10011011, "hex": "9B", "dec": 155, "channel": 12,   "description": "Chan 12 Note on" },
+    {"bin": 10011100, "hex": "9C", "dec": 156, "channel": 13,   "description": "Chan 13 Note on" },
+    {"bin": 10011101, "hex": "9D", "dec": 157, "channel": 14,   "description": "Chan 14 Note on" },
+    {"bin": 10011110, "hex": "9E", "dec": 158, "channel": 15,   "description": "Chan 15 Note on" },
+    {"bin": 10011111, "hex": "9F", "dec": 159, "channel": 16,   "description": "Chan 16 Note on" }
+  ]
+}
