@@ -20,6 +20,10 @@ function strId(Id) {
   }
 }
 
+function hexId(int) {
+  return int.toString(16).padStart(2, '0');
+}
+
 /**
  * convert a string of hex values to an array of integers
  */
@@ -41,8 +45,8 @@ function formatName(name) {
 }
 
 function getStrId(data) {
-  let _strId;
-  return `${strId(data[0])}/${formatName(data[1])}`;
+  let _hex = hexId(data[0]).split(' ').join('-');
+  return `${_hex}::${formatName(data[1])}`;
 }
 
 /**
@@ -54,9 +58,10 @@ function getStrId(data) {
  * @param {Array} arrId 
  */
 function getVendorIdFromSysex(arrId) {
-   // single byte vbendors
+   // single byte vendors
    //  DSI Mopho is 14 length for some reason
    // others?
+   // Waldorf MWXT is missing byte 4
   // console.log(arrId, arrId.length);
   if (arrId.length <= 15) {
     return [arrId[5]];
@@ -67,15 +72,12 @@ function getVendorIdFromSysex(arrId) {
 
 /**
  * 
- * @param {Array} arr an array of ints that isd the result of processing a string of hex values
+ * @param {Array} arr an array of ints that is the result of processing a string of hex values
  */
 function sysexToObject(arr) {
   let _ret = {
     status: arr[0]
   }
-
-  // if (arr.length <= )
-
 }
 
 function convert(arrVendors, arrModels) {
@@ -89,13 +91,20 @@ function convert(arrVendors, arrModels) {
     }
     _obj.arrId = intId(_obj.rawId);
     // console.log(_obj.arrId);
-    _obj.vendorId = getVendorIdFromSysex(_obj.arrId);
-    _obj.strVendorId = _obj.vendorId.join('-');
+    _obj.strId = item[0].split(' ').join('-').toLowerCase();
+    if (_obj.strId === 'f0-7e-06-02-3e-0e-00-0b-00-32-2e-33-33-f7') {
+       // XXX Bug: Waldorf Microwave XT is missing the third byte
+       _obj.vendorId = [ _obj.arrId[4] ] // 3e | 62
+       _obj.strVendorId = _obj.arrId[4].toString();
+    }
+    else {
+      _obj.vendorId = getVendorIdFromSysex(_obj.arrId);
+      _obj.strVendorId = _obj.vendorId.join('-');
+    }
     return _obj;
   });
 
   // console.log(_models);
-
   let _vendors = _.map(arrVendors, (row, i) => {
     let _intId = intId(row[0]);
     let _strId = _intId.join('-');
@@ -164,43 +173,3 @@ module.exports = {
   getStrId: getStrId,
   getVendorIdFromSysex: getVendorIdFromSysex
 }
-
-// arrModels.length = 10;
-
-// const byVendor = _.groupBy(_.map(arrModels, (row, i) => {
-
-//   let _id = _.map(row[0].trim().split(' '), (hexId) => {
-//     return parseInt(hexId, 16); // get ints from hex Strings
-//   });
-
-//   // console.log(row[0], _id);
-//   return {
-//     vendorId: _id[5],
-//     vendor: row[1],
-//     model: row[2],
-//     id: _id,
-//     type: row[3]
-//   }
-// }), 'vendorId')
-
-// console.log(records);
-
-// let result = _.groupBy(_.map(arrVendors, (row, i) => {
-//   let _vendor = {
-//     id: row[0], name: row[1], models: []
-//   }
-//   if (byVendor[_vendor.name]) {
-//     _vendor.models = byVendor[_vendor.name];
-//   }
-//   byVendor[_vendor.id]
-
-//   return _vendor;
-// }), 'id');
-
-// console.log(result.Roland);
-
-// try {
-//   fs.writeFileSync('./out.json', JSON.stringify(result, null, '  '));
-// } catch (e) {
-//   throw `Tried to write './out.json, ${e}`;
-// }

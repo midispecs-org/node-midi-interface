@@ -4,14 +4,20 @@
   "description": "A script that impersonates a synthesizer on a MIDI port.",
   "main": "index.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "start": "node index.js",
+    "tdd": "jest --watch"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "csv": "^5.3.2",
+    "jzz": "^1.2.1",
+    "jzz-midi-gear": "^1.1.8",
     "lodash": "^4.17.20",
-    "midi": "^1.0.0"
+    "midi": "^1.0.0",
+    "node-fetch": "^2.6.1",
+    "webmidi": "^2.5.1"
   },
   "devDependencies": {
     "jest": "^26.6.3"
