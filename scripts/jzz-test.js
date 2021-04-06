@@ -24,7 +24,6 @@ function __main(cb) {
     });
 
     setTimeout(() => {
-      console.log('timeout');
       cb(null, _out);
     }, 2000)
 }
@@ -37,6 +36,5 @@ if (require.main === module) {
     // console.log('timeout');
     process.exit();
   }, 1000);
-  
 }
 module.exports.__main = __main;
