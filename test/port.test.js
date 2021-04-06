@@ -2,15 +2,18 @@ const midi = require('midi');
 const _ = require('lodash');
 const { MIDIPort } = require('../lib/port-mock');
 
-let portName = 'TestPort';
+let portName = 'TestPort', manu = 'Intellijel';
 
 test('MIDIPort', (done) => {
   let port = new MIDIPort({
     logLevel: 1,
-    name: portName+`-${Date.now()}`
+    name: portName,
+    manufacturer: manu
   });
   
   expect(port.constructor.name).toBe('MIDIPort');
+  expect(port.name).toBe(portName);
+  expect(port.manufacturer).toBe(manu);
   done();
 });
 

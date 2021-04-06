@@ -2,7 +2,7 @@ const _ = require('lodash');
 const midi = require('midi');
 const { MIDIPort } = require('./lib/port-mock');
 const { Synth } = require('./lib/synth-mock');
-const instrument_data = require('./data/instrument_data.json');
+// const instrument_data = require('./data/instrument_data.json');
 
 const { getPortByName, getInputs, getOutputs, getPortMap } = require('./lib/functions');
 
@@ -45,17 +45,14 @@ if (require.main === module) {
 
   port = new MIDIPort({
     name: 'NewName',
+    manufacturer: 'Roland',
     logLevel: 1
   });
 
   port.attachDevice(fakeMopho, 1);
 
   port.listen(() => {
-    console.log(getPortMap());
-    setTimeout(() => {
-      console.log('sending identity request...');
-      sendId();
-    }, 100);
-    
+    let ports = getPortMap();
+    console.log(`Mocked synth ${mopho_data.brand} "${mopho_data.model}" attached to virtual MIDI port "${port.name}"`);
   });  
 }
